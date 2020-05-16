@@ -8,7 +8,7 @@ import './App.css';
 
 const messages = {
   en,
-  polish,
+  polish
 };
 
 function App() {

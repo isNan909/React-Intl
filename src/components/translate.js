@@ -15,7 +15,7 @@ const messages = defineMessages({
 
 const Translate = (props) => {
   const [locale, setLocale] = React.useContext(LocaleContext);
-  const nextLocale = locale === 'en' ? 'fr' : 'en';
+  const nextLocale = locale === 'en' ? 'polish' : 'en';
   return (
     <>
       <h1>

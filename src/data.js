@@ -1,11 +1,11 @@
 const message = {
   en: {
-    heading: 'Hello {name}! How are you?',
-    subheading: 'The time is {t, time, short}.',
+    heading: 'Welcome to our react application',
+    subheading: 'Your current launguage is {name}',
   },
   polish: {
-    heading: 'Hello {name}! How are you?',
-    subheading: 'The time is {t, time, short}.',
+    heading: 'Witamy w naszej aplikacji react',
+    subheading: 'Twój obecny launguage jest {name}',
   },
 };
 

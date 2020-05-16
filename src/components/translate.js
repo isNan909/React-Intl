@@ -1,5 +1,6 @@
 import React from 'react';
 import { defineMessages, FormattedMessage } from 'react-intl';
+import { LocaleContext } from '../LocaleContext';
 
 const messages = defineMessages({
   heading: {
@@ -13,6 +14,8 @@ const messages = defineMessages({
 });
 
 const Translate = (props) => {
+  const [locale, setLocale] = React.useContext(LocaleContext);
+  const nextLocale = locale === 'en' ? 'fr' : 'en';
   return (
     <>
       <h1>
@@ -21,6 +24,9 @@ const Translate = (props) => {
       <h3>
         <FormattedMessage {...messages.subHeading} />
       </h3>
+      <button onClick={() => setLocale(nextLocale)}>
+        Change language to {nextLocale}
+      </button>
     </>
   );
 };

@@ -16,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "extract-intl": "NODE_ENV=development extract-messages -l=en,polish -o src/translations -d en --flat false 'src/**/!(*.test).js'"
   },
   "eslintConfig": {
     "extends": "react-app"

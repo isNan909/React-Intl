@@ -5,11 +5,13 @@ import './App.css';
 const message = {
   en: {
     heading: 'Welcome to our react application',
-    subheading: 'Simple internationalization in action',
+    subheading: 'Einfache Internationalisierung in Aktion',
+    title: 'lets learn a simple way in {channelName}',
   },
-  de: {
+  es: {
     heading: 'Willkommen zu unserer Reaktionsanwendung',
     subheading: 'Einfache Internationalisierung in Aktion',
+    title: 'Lass uns einen einfachen Weg lernen {channelName}',
   },
 };
 
@@ -23,16 +25,27 @@ function App(props) {
   return (
     <>
       <select onChange={handleChange} defaultValue={locale}>
-        {['en', 'de'].map((x) => (
+        {['en', 'es'].map((x) => (
           <option key={x}>{x}</option>
         ))}
       </select>
 
       <IntlProvider locale={locale} messages={message[locale]}>
         <p>
-          <FormattedMessage id="heading" values={{ locale }} />
+          <FormattedMessage
+            id="heading"
+            defaultMessage="some default one"
+            values={{ locale }}
+          />
           <br />
-          <FormattedMessage id="subheading" />
+          <FormattedMessage id="subheading" defaultMessage="some default one" />
+        </p>
+        <p>
+          <FormattedMessage
+            id="title"
+            defaultMessage="lets learn a simple way in {channelName}"
+            values={{ channelName: 'forThoseWhoCode' }}
+          />
         </p>
         <p>
           <FormattedDate

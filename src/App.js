@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IntlProvider, FormattedMessage } from 'react-intl';
+import { IntlProvider, FormattedMessage, FormattedDate } from 'react-intl';
 import './App.css';
 
 const message = {
@@ -13,7 +13,7 @@ const message = {
   },
 };
 
-function App() {
+function App(props) {
   const [locale, setLocale] = useState('en');
 
   const handleChange = (e) => {
@@ -33,6 +33,15 @@ function App() {
           <FormattedMessage id="heading" values={{ locale }} />
           <br />
           <FormattedMessage id="subheading" />
+        </p>
+        <p>
+          <FormattedDate
+            value={props.date}
+            year="numeric"
+            month="long"
+            day="numeric"
+            weekday="long"
+          />
         </p>
       </IntlProvider>
     </>

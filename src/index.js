@@ -3,10 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { IntlProvider } from 'react-intl';
+import Spanish from './languages/es-MX.json';
+import English from './languages/en-US.json';
+import './App.css';
+
+const local = navigator.launguage;
+
+let lang;
+if (local === 'en-US') {
+  lang = English;
+} else {
+  lang = Spanish;
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <IntlProvider locale="es-MX" messages={Spanish}>
+      <App date={Date.now()}/>
+    </IntlProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

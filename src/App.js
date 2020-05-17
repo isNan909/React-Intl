@@ -1,40 +1,41 @@
-import React, { useState } from 'react';
-import { IntlProvider, FormattedMessage } from 'react-intl';
-import './App.css';
+import React from 'react';
+import { FormattedMessage, FormattedDate } from 'react-intl';
 
-const message = {
-  en: {
-    heading: 'Welcome to our react application',
-    subheading: 'Simple internationalization in action',
-  },
-  de: {
-    heading: 'Willkommen zu unserer Reaktionsanwendung',
-    subheading: 'Einfache Internationalisierung in Aktion',
-  },
-};
-
-function App() {
-  const [locale, setLocale] = useState('en');
-
-  const handleChange = (e) => {
-    setLocale(e.target.value);
-  };
-
+function App(props) {
   return (
     <>
-      <select onChange={handleChange} defaultValue={locale}>
-        {['en', 'de'].map((x) => (
-          <option key={x}>{x}</option>
-        ))}
-      </select>
-
-      <IntlProvider locale={locale} messages={message[locale]}>
-        <p>
-          <FormattedMessage id="heading" values={{ locale }} />
-          <br />
-          <FormattedMessage id="subheading" />
-        </p>
-      </IntlProvider>
+      <p>
+        <FormattedMessage
+          id="app.content"
+          defaultMessage="default message seeing"
+        />
+      </p>
+      <p>
+        <FormattedMessage
+          id="app.channel.plug"
+          defaultMessage="some new text"
+          values={{ channelName: 'newname' }}
+        />
+      </p>
+      <p>
+        <FormattedMessage
+          id="app.header"
+          defaultMessage="Edit <code>{fileName}</code> js and save to reload."
+          values={{
+            fileName: 'src/App.js',
+            code: (text) => <code>{text}</code>,
+          }}
+        />
+      </p>
+      <p>
+        <FormattedDate
+          value={props.date}
+          year="numeric"
+          month="long"
+          day="numeric"
+          weekday="long"
+        />
+      </p>
     </>
   );
 }

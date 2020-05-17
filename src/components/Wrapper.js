@@ -20,7 +20,7 @@ const Wrapper = (props) => {
   function selectLang(e) {
     const currentLocale = e.target.value;
     setLocale(currentLocale);
-    if (currentLocale === 'es-MX') {
+    if (currentLocale === 'en-US') {
       setMessages(Spanish);
     } else {
       setMessages(English);
